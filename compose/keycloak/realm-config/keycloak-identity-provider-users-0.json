@@ -1,0 +1,96 @@
+{
+  "realm" : "keycloak-identity-provider",
+  "users" : [ {
+    "id" : "3f53d94b-cad5-41bb-a77a-f4a2ed2a664c",
+    "createdTimestamp" : 1689781225240,
+    "username" : "attribute_extraction",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : true,
+    "firstName" : "",
+    "lastName" : "",
+    "email" : "attribute_extraction@gmail.com",
+    "credentials" : [ {
+      "id" : "eb798c1f-0e77-4c40-8fec-9fbb70919560",
+      "type" : "password",
+      "userLabel" : "My password",
+      "createdDate" : 1689781238345,
+      "secretData" : "{\"value\":\"2Tog96Kl6t/m+EQe2D6dopDSZ4oqC31ylhsW+GL70Gg=\",\"salt\":\"8V3ERdb6B84KntCgZCe0ag==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-keycloak-identity-provider" ],
+    "notBefore" : 0,
+    "groups" : [ "/API_full_access_group", "/API_read_user_group" ]
+  }, {
+    "id" : "ad2bcd92-d069-470f-8230-b44eb218962e",
+    "createdTimestamp" : 1708526868312,
+    "username" : "data.ingestion",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : true,
+    "firstName" : "Data",
+    "lastName" : "Ingestion",
+    "email" : "data.ingestion@pinpointai.com",
+    "credentials" : [ {
+      "id" : "6d4df717-42dc-43f8-b7ac-03648ffdd17f",
+      "type" : "password",
+      "userLabel" : "My password",
+      "createdDate" : 1708534835234,
+      "secretData" : "{\"value\":\"UUpELLTzwyK6zhqhJ1ZgleX+6Z7VEgMzlW38ylGpQJU=\",\"salt\":\"SrCryxcOTSrpSZsWUzLLsA==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "admin", "default-roles-keycloak-identity-provider" ],
+    "notBefore" : 0,
+    "groups" : [ ]
+  }, {
+    "id" : "37203193-518d-40f2-ab22-546e894922a5",
+    "createdTimestamp" : 1690800372522,
+    "username" : "pinpointai_account_controller",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : true,
+    "firstName" : "CHAND",
+    "lastName" : "SHEIKH",
+    "email" : "chaand.sheikh@pinpointai.com",
+    "credentials" : [ {
+      "id" : "ebcc3e46-7beb-462e-bcf1-0f6ee01d1bdc",
+      "type" : "password",
+      "userLabel" : "My password",
+      "createdDate" : 1690885994301,
+      "secretData" : "{\"value\":\"eIHM2zFelWVk44f+4dK/4MpM/YyRtYJpZu4KTbQX/WE=\",\"salt\":\"l3sRA74v/Ts0e71P8qxDUQ==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-keycloak-identity-provider" ],
+    "notBefore" : 0,
+    "groups" : [ "/API_full_access_group", "/API_read_user_group", "/account_controller_group" ]
+  }, {
+    "id" : "6b4a7a28-dfc5-46e1-aa16-161b5b9ad498",
+    "createdTimestamp" : 1690800110345,
+    "username" : "pinpointai_admin",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : true,
+    "firstName" : "Shivansh",
+    "lastName" : "Bhandari",
+    "email" : "shivansh.bhandari@pinpointai.com",
+    "credentials" : [ {
+      "id" : "01370f09-a958-4ab0-b697-b8183edc9d71",
+      "type" : "password",
+      "userLabel" : "My password",
+      "createdDate" : 1690885977035,
+      "secretData" : "{\"value\":\"qBhyJsxJ2XEhSrC/TGvIycaRciFJz2ucBWe/ySt6IsI=\",\"salt\":\"QMtFRjeJMcPNDM2JMP9nHw==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-keycloak-identity-provider" ],
+    "notBefore" : 0,
+    "groups" : [ "/API_full_access_group", "/API_read_user_group", "/account_controller_group", "/keycloak_admin_group" ]
+  } ]
+}

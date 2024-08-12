@@ -1,0 +1,78 @@
+volumes:
+  shared_data:
+
+services:
+
+  dd-backend:
+    container_name: dd-backend
+    build:
+      context: .
+      dockerfile: compose/app/Dockerfile
+    image: dd-backend
+
+    env_file:
+      - .env
+    ports:
+      - "9000:9000"
+    expose:
+      - "9000"
+    depends_on:
+      - dd-redis
+    volumes:
+      - shared_data:/app/app/data  # Mounting the shared volume at /app/data
+#    command: bash -c "python main.py"
+    command: uvicorn app.main:app --host 0.0.0.0 --port 9000
+
+
+  dd-celery:
+    container_name: dd-celery
+    build:
+      context: .
+      dockerfile: compose/app/Dockerfile
+    volumes:
+      - shared_data:/app/app/data  # Mounting the shared volume at /app/data
+    command: celery -A app.celery_worker.celery worker --loglevel=info
+    depends_on:
+      - dd-redis
+
+  dd-redis:
+    image: redis:7.0
+    container_name: dd-redis
+    ports:
+      - "6379:6379"
+
+  dd-flower:
+    image: mher/flower:2.0.0
+    container_name: dd-flower
+    ports:
+      - "5555:5555"
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - FLOWER_PORT=5555
+    depends_on:
+      - dd-redis
+
+#  dd-keycloak:
+#      build:
+#        context: .
+#        dockerfile: compose/keycloak/Dockerfile
+#      image: dd-keycloak
+#      container_name: dd-keycloak
+#      env_file:
+#        - .env
+#      ports:
+#        - ${KEYCLOAK_SERVER_PORT}:${KEYCLOAK_SERVER_PORT}
+#        - 8081:8081
+#      environment:
+#          KEYCLOAK_DATABASE_NAME: ${KEYCLOAK_DATABASE_NAME}
+#          KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN}
+#          KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
+#          KEYCLOAK_LOGLEVEL: INFO
+#          ROOT_LOGLEVEL: INFO
+#      command:
+#         - start-dev --import-realm --db postgres --db-url-host ${KEYCLOAK_DATABASE_URL}  --db-url-database ${KEYCLOAK_DATABASE_NAME} --db-username ${KEYCLOAK_DATABASE_USERNAME} --db-password ${KEYCLOAK_DATABASE_PASSWORD}
+#
+#
+#
+#
+#
